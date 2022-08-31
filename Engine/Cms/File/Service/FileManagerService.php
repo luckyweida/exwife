@@ -124,7 +124,7 @@ class FileManagerService
      */
     public function processFile($sourceFile, $foldId, $options = [])
     {
-        $originalName = $options['originalName'] ?? null;
+        $originalName = $options['originalName'] ?? basename($sourceFile);
 
         $fullClass = UtilsService::getFullClassFromName('Asset');
         $rank = $fullClass::data($this->_connection, [
@@ -154,10 +154,10 @@ class FileManagerService
      */
     public function processFileWithAsset($sourceFile, $asset, $options = [])
     {
-        $originalName = $options['originalName'] ?? null;
-        $fileType = $options['fileType'] ?? null;
-        $fileSize = $options['fileSize'] ?? null;
-        $fileExtension = $options['fileExtension'] ?? null;
+        $originalName = $options['originalName'] ?? basename($sourceFile);
+        $fileType = $options['fileType'] ?? mime_content_type($sourceFile);
+        $fileSize = $options['fileSize'] ?? filesize($sourceFile);
+        $fileExtension = $options['fileExtension'] ?? pathinfo($sourceFile, PATHINFO_EXTENSION);
 
         static::removeFile($asset);
         static::removeCaches($this->_connection, $asset);
