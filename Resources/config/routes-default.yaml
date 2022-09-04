@@ -50,10 +50,6 @@ web_shop:
   resource: "../../Engine/Web/Shop/Controller"
   type: annotation
 
-web_news:
-  resource: "../../Engine/Web/News/Controller"
-  type: annotation
-
 web_core:
   resource: "../../Engine/Web/_Core/Controller"
   type: annotation
