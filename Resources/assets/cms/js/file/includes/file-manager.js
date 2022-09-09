@@ -318,9 +318,7 @@ fileManager = {
 
         // $('#js-files').html(fileManager.templateFiles(fileManager.keyword));
         $('#js-files').html(`
-            <div class="alert alert-info" style="opacity: .5;">
-                <span style="color: black;">Loading...</span>
-            </div>
+            <img src="${window._getThickSpinner()}" style="max-width: 320px; max-height: 300px">
         `);
 
         window.__returnUrl = location.pathname + '?currentFolderId=' + fileManager.currentFolderId;
