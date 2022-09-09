@@ -107,14 +107,14 @@ class FileManagerController extends BaseController
             $limit = 240;
 
             $data = $fullClass::data($this->_connection, [
-                'whereSql' => 'm.isFolder = 0 AND (m.title LIKE ? OR m.code LIKE ?)',
-                'params' => array("%$keyword%", "%$keyword%"),
+                'whereSql' => 'm.isFolder = 0 AND (m.title LIKE ? OR m.code LIKE ? OR m.description LIKE ?)',
+                'params' => array("%$keyword%", "%$keyword%", "%$keyword%"),
                 'page' => $pageNum,
                 'limit' => $limit,
             ]);
             $total = $fullClass::data($this->_connection, [
-                'whereSql' => 'm.isFolder = 0 AND (m.title LIKE ? OR m.code LIKE ?)',
-                'params' => array("%$keyword%", "%$keyword%"),
+                'whereSql' => 'm.isFolder = 0 AND (m.title LIKE ? OR m.code LIKE ? OR m.description LIKE ?)',
+                'params' => array("%$keyword%", "%$keyword%", "%$keyword%"),
                 'count' => 1,
             ]);
 

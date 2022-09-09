@@ -230,7 +230,7 @@ abstract class BaseORM implements \JsonSerializable
 
         if (strpos($field, '_') === 0) {
             if (in_array($field, ['_added', '_modified'])) {
-                return $this->$field ? date('d F Y', strtotime($this->$field)) : null;
+                return $this->$field ? date('d M y', strtotime($this->$field)) : null;
             } else if (in_array($field, ['_userId'])) {
                 $fullClass = UtilsService::getFullClassFromName('User');
                 $orm = $fullClass::getById($this->_connection, $this->$field);
@@ -274,11 +274,11 @@ abstract class BaseORM implements \JsonSerializable
                     }
                 } elseif ($columnJson->widget == 'Date picker') {
 
-                    return date('d F Y', strtotime($this->$field));
+                    return date('d M y', strtotime($this->$field));
 
                 } elseif ($columnJson->widget == 'Date time picker') {
 
-                    return date('d F Y H:i', strtotime($this->$field));
+                    return date('d M y H:i', strtotime($this->$field));
 
                 } else {
 

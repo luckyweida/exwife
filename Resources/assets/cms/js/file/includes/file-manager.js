@@ -109,7 +109,7 @@ fileManager = {
                         : `<li class="active"><strong title="${itm.title}">${itm.title}</strong></li>`)
                 pathItemsHtml = `<div><ol class="breadcrumb pull-left">${pathHtml.join('')}</ol></div>`;
             } else {
-                pathItemsHtml = `<div>Search results for <strong class="">${keyword}</strong></div>`;
+                pathItemsHtml = `<div style="padding: 8px 15px;">Search results for <strong class="">${keyword}</strong></div>`;
             }
 
             var buttonsHtml = '';
@@ -316,8 +316,12 @@ fileManager = {
         $('.js-extra-stuff').hide();
         $('.js-files-pagination').hide();
 
-        $('#js-files').html(fileManager.templateFiles(fileManager.keyword));
-        // $('#js-files > ul').html('<img src="/cms/images/spinner.gif" alt="Loading..." />');
+        // $('#js-files').html(fileManager.templateFiles(fileManager.keyword));
+        $('#js-files').html(`
+            <div class="alert alert-info" style="opacity: .5;">
+                <span style="color: black;">Loading...</span>
+            </div>
+        `);
 
         window.__returnUrl = location.pathname + '?currentFolderId=' + fileManager.currentFolderId;
         if (fileManager.keyword) {
@@ -335,7 +339,7 @@ fileManager = {
                 fileManager.files = data.files;
                 fileManager.filesTotal = data.total;
                 fileManager.filesPageNum = data.pageNum;
-                fileManager.renderFiles()
+                fileManager.renderFiles();
             }
         });
     },

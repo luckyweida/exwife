@@ -311,7 +311,7 @@ trait ManageControllerTrait
             $columns[] = [
                 'label' => 'Added',
                 'field' => '_added',
-                'listingWidth' => 150,
+                'listingWidth' => 90,
                 'queryable' => null,
             ];
         }
@@ -326,7 +326,7 @@ trait ManageControllerTrait
             $columns[] = [
                 'label' => 'Modified',
                 'field' => '_modified',
-                'listingWidth' => 150,
+                'listingWidth' => 90,
                 'queryable' => null,
             ];
         }
