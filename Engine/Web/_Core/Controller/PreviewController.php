@@ -276,9 +276,9 @@ class PreviewController extends AbstractController
     protected function getAsset($assetCode)
     {
         $fullClass = UtilsService::getFullClassFromName('Asset');
-        $asset = $fullClass::getByField($this->_connection, 'code', $assetCode);
+        $asset = $fullClass::getById($this->_connection, $assetCode);
         if (!$asset) {
-            $asset = $fullClass::getById($this->_connection, $assetCode);
+            $asset = $fullClass::getByField($this->_connection, 'code', $assetCode);
         }
         if (!$asset) {
             throw new NotFoundHttpException();
