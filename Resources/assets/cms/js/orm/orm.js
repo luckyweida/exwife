@@ -854,6 +854,10 @@ window._closeFancybox = _closeFancybox;
                             }
                             return null;
                         });
+
+                        if (callback) {
+                            callback();
+                        }
                     }
                 });
             };
