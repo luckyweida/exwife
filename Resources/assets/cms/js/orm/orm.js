@@ -12,6 +12,8 @@ require('./redactor/_plugins/table/table.js');
 require('./redactor/_plugins/video/video.js');
 require('./redactor/_plugins/counter/counter.js');
 require('./redactor/_plugins/alignment/alignment.js');
+require('./redactor/_plugins/fontsize/fontsize');
+
 require('./includes/redactor.plugins');
 
 function _filespicker(selectedFiles, callback) {
