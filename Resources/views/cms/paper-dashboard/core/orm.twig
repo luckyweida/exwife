@@ -10,7 +10,7 @@
     <link href="{{ preload(asset('build/runtime.js'), { as: 'script' }) }}" as="script" rel="preload">
     <link href="{{ preload(asset('build/cms-orm.js'), { as: 'script' }) }}" as="script" rel="preload">
     <script src="{{ asset('build/runtime.js') }}" defer></script>
-    <script src="{{ asset('build/cms-orm.js') }}" defer></script>
+    <script src="{{ asset('build/cms-orm.js') }}?v=2" defer></script>
 {% endblock %}
 
 {% form_theme formView '/cms/' ~ _theme ~ '/form.twig' %}
