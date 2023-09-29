@@ -260,7 +260,7 @@ class CmsService
             ];
             $nodes[] = $node;
 
-            $pageTree = PageService::getPageTreeByCategoryId($this->_connection, $pageCategory->id);
+            $pageTree = PageService::getPageTreeByCategoryId($this->_connection, $pageCategory->id, 1);
             foreach ($pageTree->getRootNodes() as $rootNode) {
                 $nodes = array_merge($nodes, $this->_setPageNode($pageCategory, $rootNode));
             }

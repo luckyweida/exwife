@@ -32,13 +32,19 @@ class PageService
      * @param $pageCategroyId
      * @return Tree
      */
-    static public function getPageTreeByCategoryId($connection, $pageCategroyId)
+    static public function getPageTreeByCategoryId($connection, $pageCategroyId, $activeOnly = 0)
     {
         $nodes = [];
 
         $fullClass = UtilsService::getFullClassFromName('Page');
-        /** @var Page[] $pages */
-        $pages = $fullClass::data($connection);
+        if ($activeOnly) {
+            /** @var Page[] $pages */
+            $pages = $fullClass::active($connection);
+        } else {
+            /** @var Page[] $pages */
+            $pages = $fullClass::data($connection);
+        }
+
         foreach ($pages as $page) {
             $category = (array)$page->objCategory();
             if (!in_array($pageCategroyId, $category) && !($pageCategroyId == 0 && count($category) == 0)) {
