@@ -13,6 +13,8 @@ require('./redactor/_plugins/video/video.js');
 require('./redactor/_plugins/counter/counter.js');
 require('./redactor/_plugins/alignment/alignment.js');
 require('./redactor/_plugins/fontsize/fontsize');
+require('./redactor/_plugins/fontcolor/fontcolor');
+require('./redactor/_plugins/fontfamily/fontfamily');
 
 require('./includes/redactor.plugins');
 
